@@ -15,5 +15,5 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Setup lazy.nvim
+-- Setup lazy and point to plugin specs
 require("lazy").setup("davidvous.lazy")

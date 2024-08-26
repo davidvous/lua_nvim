@@ -3,11 +3,21 @@ return {
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
-	    require("harpoon").setup()
+    local harpoon = require("harpoon")
+
+    harpoon:setup()
+
+    vim.keymap.set("n", "<leader>aa", function() harpoon:list():add() end)
+    vim.keymap.set("n", "<leader>ff", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+
+    vim.keymap.set("n", "<leader>qq", function() harpoon:list():select(1) end)
+    vim.keymap.set("n", "<leader>ww", function() harpoon:list():select(2) end)
+    vim.keymap.set("n", "<leader>ee", function() harpoon:list():select(3) end)
+    vim.keymap.set("n", "<leader>rr", function() harpoon:list():select(4) end)
+    vim.keymap.set("n", "<leader><C-q>", function() harpoon:list():replace_at(1) end)
+    vim.keymap.set("n", "<leader><C-w>", function() harpoon:list():replace_at(2) end)
+    vim.keymap.set("n", "<leader><C-e>", function() harpoon:list():replace_at(3) end)
+    vim.keymap.set("n", "<leader><C-r>", function() harpoon:list():replace_at(4) end)
     end,
-    keys = {
-	    { "<leader>a", function() require("harpoon"):list():add() end, desc = "harpoon file", },
-	    { "<leader>ah", function() require("harpoon") harpoon.ui.toggle_quick_menu(harpoon:list()) end, desc = "harpoon quick menu", },
-    },
 }
 
