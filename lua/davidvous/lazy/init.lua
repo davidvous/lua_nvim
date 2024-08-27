@@ -1,5 +1,4 @@
 return {
-	"folke/tokyonight.nvim",
 	"folke/which-key.nvim",
 	{
 		"nvim-lua/plenary.nvim",
